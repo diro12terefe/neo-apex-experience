@@ -35,7 +35,7 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <button
           onClick={() => scrollToSection('hero')}
-          className="text-2xl font-bold tracking-[0.3em] bg-gradient-to-r from-primary via-accent to-accent bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 animate-glow-pulse cursor-hover"
+          className="text-2xl font-bold tracking-[0.3em] bg-gradient-to-r from-primary via-accent to-accent bg-clip-text text-transparent hover:scale-105 transition-all duration-300 cursor-hover"
         >
           APEX
         </button>
@@ -43,21 +43,24 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <button
             onClick={() => scrollToSection('about')}
-            className="text-sm font-medium text-foreground hover:text-accent transition-colors cursor-hover"
+            className="relative text-sm font-medium text-foreground hover:text-accent transition-all duration-300 cursor-hover group"
           >
             About
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
           </button>
           <button
             onClick={() => scrollToSection('services')}
-            className="text-sm font-medium text-foreground hover:text-accent transition-colors cursor-hover"
+            className="relative text-sm font-medium text-foreground hover:text-accent transition-all duration-300 cursor-hover group"
           >
             Services
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
           </button>
           <button
             onClick={() => scrollToSection('work')}
-            className="text-sm font-medium text-foreground hover:text-accent transition-colors cursor-hover"
+            className="relative text-sm font-medium text-foreground hover:text-accent transition-all duration-300 cursor-hover group"
           >
             Work
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
           </button>
           <button
             onClick={toggleTheme}
