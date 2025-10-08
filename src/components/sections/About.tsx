@@ -30,35 +30,35 @@ const TeamCard = ({ member }: { member: TeamMember }) => {
 
   return (
     <div
-      className="group perspective cursor-pointer"
+      className="group perspective cursor-hover"
       onClick={() => setIsFlipped(!isFlipped)}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
       <div
-        className={`relative w-full h-80 transition-transform duration-700 transform-style-3d ${
+        className={`relative w-full h-80 transition-all duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-style-3d ${
           isFlipped ? "rotate-y-180" : ""
         }`}
       >
         {/* Front */}
         <Card
-          className={`absolute inset-0 glass-morph p-8 flex flex-col items-center justify-center text-center backface-hidden ${
-            isFlipped ? "invisible" : "visible"
-          }`}
+          className={`absolute inset-0 glass-morph p-8 flex flex-col items-center justify-center text-center backface-hidden transition-all duration-500 ${
+            isFlipped ? "invisible opacity-0" : "visible opacity-100"
+          } group-hover:shadow-xl group-hover:shadow-accent/20`}
         >
-          <div className="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center mb-6">
-            <Code className="w-12 h-12 text-accent" />
+          <div className="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent/30">
+            <Code className="w-12 h-12 text-accent transition-transform duration-500 group-hover:rotate-12" />
           </div>
-          <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
+          <h3 className="text-2xl font-bold mb-2 transition-colors duration-300">{member.name}</h3>
           <p className="text-accent font-semibold mb-4">{member.role}</p>
-          <p className="text-sm text-muted-foreground">Click to reveal expertise</p>
+          <p className="text-sm text-muted-foreground transition-opacity duration-300 group-hover:opacity-80">Click to reveal expertise</p>
         </Card>
 
         {/* Back */}
         <Card
-          className={`absolute inset-0 glass-morph p-8 rotate-y-180 backface-hidden ${
-            isFlipped ? "visible" : "invisible"
-          }`}
+          className={`absolute inset-0 glass-morph p-8 rotate-y-180 backface-hidden transition-all duration-500 ${
+            isFlipped ? "visible opacity-100" : "invisible opacity-0"
+          } shadow-xl shadow-accent/20`}
         >
           <div className="h-full flex flex-col justify-between">
             <div>
